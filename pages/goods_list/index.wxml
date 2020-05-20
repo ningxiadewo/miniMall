@@ -1,2 +1,18 @@
-<!--pages/goods_list/index.wxml-->
-<text>pages/goods_list/index.wxml</text>
+<SearchInput></SearchInput>
+<Tabs tabs="{{tabs}}" bindhandleItemTab="_handleItemTab">
+  <view wx:if="{{tabs[0].isActive}}">
+    <view class="goods_list">
+      <navigator class="goods_item" wx:for="{{goodsList}}" wx:key="goods_id">
+        <view class="img">
+          <image src="{{item.goods_small_logo? item.goods_small_logo:'https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg'}}" mode="widthFix" />
+        </view>
+        <view class="info">
+          <view class="name">{{item.goods_name}}</view>
+          <view class="price">￥{{item.goods_price}}</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <view wx:elif="{{tabs[1].isActive}}">销量</view>
+  <view wx:else>价格</view>
+</Tabs>

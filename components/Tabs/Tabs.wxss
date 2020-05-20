@@ -1,0 +1,15 @@
+.tabs .tabs_wrap {
+  display: flex;
+  height: 90rpx;
+  border-bottom: 1px solid #e5e5e5;
+}
+.tabs .tabs_wrap .tabs_item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tabs .tabs_wrap .Active {
+  color: var(--themeColor);
+  border-bottom: 1px solid currentColor;
+}

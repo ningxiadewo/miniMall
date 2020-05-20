@@ -1,0 +1,36 @@
+.goods_list {
+  .goods_item {
+    display: flex;
+    border-bottom: 2rpx solid #e5e5e5;
+    .img {
+      flex: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10rpx 0;
+      image {
+        width: 70%;
+      }
+    }
+    .info {
+      flex: 3;
+      display: flex;
+      // 主轴方向为垂直方向
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 30rpx 0;
+      .name {
+        font-size: 28rpx;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .price {
+        font-size: 30rpx;
+        font-weight: 600;
+        color: var(--themeColor);
+      }
+    }
+  }
+}
