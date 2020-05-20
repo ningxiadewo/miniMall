@@ -1,0 +1,58 @@
+.category {
+  height: 100%;
+  .cates_container {
+    display: flex;
+    height: 100%;
+    .left_menu {
+      height: 100%;
+      flex: 2;
+      scroll-view {
+        // 设置滚动高度
+        height: ~"calc(100vh - 90rpx)";
+        .menu_item {
+          display: flex;
+          height: 90rpx;
+          justify-content: center;
+          align-items: center;
+          border-bottom: 1px solid #f4f4f4;
+        }
+        .active {
+          color: var(--themeColor);
+          border-left: 4rpx solid currentColor;
+        }
+      }
+    }
+    .right_content {
+      height: 100%;
+      flex: 5;
+      scroll-view {
+        height: ~"calc(100vh - 90rpx)";
+        .wrapper {
+          .title {
+            display: flex;
+            height: 90rpx;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            .diagonal {
+              padding: 0 20rpx;
+              color: #ccc;
+            }
+          }
+          .content_list {
+            display: flex;
+            flex-wrap: wrap;
+            navigator {
+              text-align: center;
+              width: 33.33%;
+              font-size: 24rpx;
+              image {
+                width: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

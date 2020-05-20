@@ -1,0 +1,6 @@
+<view class="search_input">
+  <navigator url="/pages/search/index" class="warrap">
+    <view class="iconfont icon-search icon"></view>
+    <view>搜索</view>
+  </navigator>
+</view>
