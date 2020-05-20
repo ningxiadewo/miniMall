@@ -2,7 +2,7 @@
 <Tabs tabs="{{tabs}}" bindhandleItemTab="_handleItemTab">
   <view wx:if="{{tabs[0].isActive}}">
     <view class="goods_list">
-      <navigator class="goods_item" wx:for="{{goodsList}}" wx:key="goods_id">
+      <navigator class="goods_item" wx:for="{{goodsList}}" wx:key="goods_id" url="/pages/goods_detail/index?goods_id={{item.goods_id}}">
         <view class="img">
           <image src="{{item.goods_small_logo? item.goods_small_logo:'https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg'}}" mode="widthFix" />
         </view>

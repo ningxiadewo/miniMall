@@ -1,4 +1,3 @@
-// pages/goods_list/index.js
 import regeneratorRuntime from "../../lib/runtime/runtime";
 import { request } from "../../request/index";
 Page({
@@ -70,6 +69,8 @@ Page({
       // 如有下一页，把当前已有的商品信息加入到数组中
       goodsList: [...this.data.goodsList, ...res.goods],
     });
+    // 数据请求回来，关闭下拉刷新样式
+    wx.stopPullDownRefresh();
   },
   // 切换按钮
   _handleItemTab(e) {
@@ -100,5 +101,21 @@ Page({
       // 发送网络请求
       this.getGoodsList();
     }
+  },
+  /**
+   * 下拉刷新 需设置json文件："enablePullDownRefresh": true
+   */
+  onPullDownRefresh() {
+    // 重置数组  // 设置页数为1
+    this.setData({
+      goodsList: [],
+      pageParams: {
+        ...this.data.pageParams,
+        pagenum: 1,
+      },
+    });
+
+    // 请求数据
+    this.getGoodsList();
   },
 });

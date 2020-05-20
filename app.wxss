@@ -15,6 +15,7 @@ navigator {
 /* 设置主题颜色 */
 page {
   --themeColor: #eb4450;
+  font-size: 28rpx;
 }
 
 /* 设置图片宽度 */

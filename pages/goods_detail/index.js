@@ -1,66 +1,82 @@
-// pages/goods_detail/index.js
+import regeneratorRuntime from "../../lib/runtime/runtime";
+import { request } from "../../request/index";
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
+    goodsInfo: {},
   },
+
+  // 全局变量 商品数据
+  GoodsInfo: {},
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const { goods_id } = options;
+    this.getGoodsInfo(goods_id);
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  // 获取商品信息
+  async getGoodsInfo(goods_id) {
+    const res = await request({
+      url: "/goods/detail",
+      data: {
+        goods_id,
+      },
+    });
+    this.setData({
+      goodsInfo: {
+        goods_id: res.goods_id,
+        goods_name: res.goods_name,
+        goods_price: res.goods_price,
+        // 解决一个ios系统部分手机无法识别webp，叫后端改图片，或者自己先改一下，
+        // 前提是后台有jpg等格式的图片替换
+        goods_introduce: res.goods_introduce.replace(/\.webp/, ".jpg"),
+        pics: res.pics,
+      },
+    });
+    this.GoodsInfo = this.data.goodsInfo;
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  // 预览图片
+  previewImage(e) {
+    // 获取显示的url
+    const urls = this.data.goodsInfo.pics.map((v) => v.pics_mid);
+    // 获取现在接受的url
+    const { current } = e.currentTarget.dataset;
+    wx.previewImage({
+      current,
+      urls,
+    });
   },
+  addCart() {
+    // 获取缓存中的购物车数据
+    let cart = wx.getStorageSync("cart") || [];
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+    // 查看当前的购物车是否已经有该商品，有该商品，则数量加一，没有即把当前商品加入数组
+    // findIndex的用法，函数需要return true 或者 false 找到则返回索引，没有找到返回-1
+    const index = cart.findIndex((v) => v.goods_id === this.GoodsInfo.goods_id);
 
+    if (index === -1) {
+      // 没有找到 把商品信息添加到cart中
+      // 第一次添加 num = 1
+      this.GoodsInfo.num = 1;
+      cart.push(this.GoodsInfo);
+    } else {
+      // 找到了,该商品的数量加一
+      cart[index].num++;
+    }
+
+    // 更新数据缓存
+    wx.setStorageSync("cart", cart);
+
+    // 提示添加成功
+    wx.showToast({
+      title: "加入购物车成功",
+      mask: true, // 开启遮罩，防止用户频繁点击按钮
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
-})
+});
