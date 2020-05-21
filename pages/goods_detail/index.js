@@ -27,6 +27,7 @@ Page({
         goods_id,
       },
     });
+    this.GoodsInfo = res;
     this.setData({
       goodsInfo: {
         goods_id: res.goods_id,
@@ -38,7 +39,6 @@ Page({
         pics: res.pics,
       },
     });
-    this.GoodsInfo = this.data.goodsInfo;
   },
 
   // 预览图片
@@ -64,6 +64,7 @@ Page({
       // 没有找到 把商品信息添加到cart中
       // 第一次添加 num = 1
       this.GoodsInfo.num = 1;
+      this.GoodsInfo.checked = true;
       cart.push(this.GoodsInfo);
     } else {
       // 找到了,该商品的数量加一

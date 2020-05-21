@@ -49,6 +49,7 @@
   text-align: center;
   width: 33.33%;
   font-size: 24rpx;
+  padding: 20rpx 0;
 }
 .category .cates_container .right_content scroll-view .wrapper .content_list navigator image {
   width: 50%;

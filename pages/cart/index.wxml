@@ -1,2 +1,80 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<view class="cart">
+  <!-- 收货地址 开始 -->
+  <view class="address">
+    <!-- 缓存中没有地址 -->
+    <block wx:if="{{!address}}">
+      <view class="empty_address">
+        <button plain class="btn_address" bindtap="handleAddress">+ 添加收获地址</button>
+      </view>
+    </block>
+    <!-- 缓存中有地址 -->
+    <block wx:else>
+      <view class="address_info">
+        <view class="left_info">
+          <view class="name">{{address.userName}}</view>
+          <view class="detail">{{address.detailAddress}}</view>
+        </view>
+        <view class="right_phone">{{address.telNumber}}</view>
+      </view>
+    </block>
+  </view>
+  <!-- 收货地址 结束 -->
+  <!-- 商品信息 开始 -->
+  <view class="goods_info">
+    <view class="info_title">购物车</view>
+    <!-- 商品信息列表 -->
+    <block wx:if="{{cart.length !== 0}}"
+    ><view class="info_list" wx:for="{{cart}}" wx:key="goods_id">
+      <!-- 选中 -->
+      <view class="list_chk_wrap">
+        <checkbox-group bindchange="">
+          <checkbox checked="{{item.checked}}" color="var(--themeColor)" bindtap="checkGood" data-index="{{index}}" />
+        </checkbox-group>
+      </view>
+      <!-- 图片 -->
+      <view class="list_img_wrap">
+        <image src="{{item.goods_small_logo}}" mode="widthFix" />
+      </view>
+      <!-- 商品信息 -->
+      <view class="list_info_wrap">
+        <view class="goods_name">{{item.goods_name}}</view>
+        <view class="price_wrap">
+          <view class="goods_price">￥{{item.goods_price}}</view>
+          <!-- 商品数量 -->
+          <view class="tools_edit">
+            <view class="edit_num" bindtap="editNum" data-num="{{-1}}" data-index="{{index}}">-</view>
+            <view class="goods_num">{{item.num}}</view>
+            <view class="edit_num" bindtap="editNum" data-num="{{1}}" data-index="{{index}}">+</view>
+          </view>
+        </view>
+      </view>
+    </view></block>
+    <block wx:else>
+      <image src="http://pic.616pic.com/ys_b_img/00/09/39/Ls8lTFMQiU.jpg" mode="widthFix"/>
+    </block>
+    
+  </view>
+  <!-- 商品信息 结束 -->
+  <!-- 底部工具 开始 -->
+  <view class="info_tools">
+    <view class="allChecked_wrap">
+      <view class="allchecked_chk">
+        <checkbox-group bindchange="checkAllGood">
+          <checkbox checked="{{allChecked}}" color="var(--themeColor)" />
+        </checkbox-group>
+      </view>
+      <view class="allchecked_text">全选</view>
+    </view>
+    <view class="total_wrap">
+      <view class="top_wrap">
+        <view class="total_text">合计：</view>
+        <view class="toral_price">￥{{totalPrice}}</view>
+      </view>
+      <view class="bom_wrap">包含运费</view>
+    </view>
+    <view class="to_order_wrap" bindtap="toOrder">
+      <text>结算({{totalNum}})</text>
+    </view>
+  </view>
+  <!-- 底部工具 结束 -->
+</view>
