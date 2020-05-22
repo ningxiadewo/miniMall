@@ -1,1 +1,112 @@
-/* pages/pay/index.wxss */
+page {
+  padding-bottom: 90rpx;
+}
+.order .address {
+  height: 120rpx;
+  border-bottom: 4rpx solid #e5e5e5;
+}
+.order .address .address_info {
+  display: flex;
+  padding: 10rpx;
+}
+.order .address .address_info .left_info {
+  flex: 5;
+}
+.order .address .address_info .right_phone {
+  text-align: end;
+  flex: 2;
+}
+.order .goods_info .info_title {
+  padding: 20rpx;
+  font-size: 36rpx;
+  color: var(--themeColor);
+  border-bottom: 2rpx solid #e5e5e5;
+}
+.order .goods_info .info_list {
+  display: flex;
+  border-bottom: 2rpx solid #e5e5e5;
+}
+.order .goods_info .info_list .list_img_wrap {
+  flex: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.order .goods_info .info_list .list_img_wrap image {
+  width: 70%;
+}
+.order .goods_info .info_list .list_info_wrap {
+  flex: 15;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20rpx;
+}
+.order .goods_info .info_list .list_info_wrap .goods_name {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.order .goods_info .info_list .list_info_wrap .price_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 20rpx;
+}
+.order .goods_info .info_list .list_info_wrap .price_wrap .goods_price {
+  font-size: 32rpx;
+  color: var(--themeColor);
+}
+.order .goods_info .info_list .list_info_wrap .price_wrap .tools_edit {
+  text-align: end;
+}
+.order .goods_info .info_list .list_info_wrap .price_wrap .tools_edit .goods_num {
+  height: 44rpx;
+  float: left;
+}
+.order .info_tools {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 90rpx;
+  width: 100%;
+  display: flex;
+  background-color: #fff;
+  border-top: 2rpx solid #e5e5e5;
+}
+.order .info_tools .total_wrap {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+  padding-right: 10rpx;
+}
+.order .info_tools .total_wrap .top_wrap {
+  flex: 3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.order .info_tools .total_wrap .top_wrap .total_text {
+  font-size: 32rpx;
+}
+.order .info_tools .total_wrap .top_wrap .toral_price {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--themeColor);
+}
+.order .info_tools .total_wrap .bom_wrap {
+  flex: 1;
+  font-size: 24rpx;
+}
+.order .info_tools .to_pay_wrap {
+  background-color: var(--themeColor);
+  flex: 2;
+  text-align: center;
+  line-height: 90rpx;
+}
+.order .info_tools .to_pay_wrap text {
+  color: #fff;
+  font-size: 32rpx;
+}

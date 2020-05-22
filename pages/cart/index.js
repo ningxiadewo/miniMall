@@ -45,7 +45,8 @@ Page({
     // 1、先用wx.getSetting的authSetting的scope.address属性查看下用户当前授予的权限
     try {
       const getRes = await getSetting();
-      // 2、如果scope.address为false(用户取消授权)或者undefine(用户还没打开过授权地址)，则打开wx-openSetting诱导用户打开权限
+      // 2、如果scope.address为false(用户取消授权)或者undefine(用户还没打开过授权地址)，
+      // 则打开wx-openSetting诱导用户打开权限
       const isChoosed = getRes.authSetting["scope.address"];
       if (!isChoosed || isChoosed === undefined) {
         // 打开用户权限
@@ -194,7 +195,7 @@ Page({
       } else {
         // 有选中商品 去结算
         wx.navigateTo({
-          url: "/pages/order/index",
+          url: "/pages/pay/index",
         });
       }
     }

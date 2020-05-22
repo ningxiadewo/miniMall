@@ -1,1 +1,5 @@
-/* pages/login/index.wxss */
+.login button {
+  border: 2rpx solid #e5e5e5;
+  margin-top: 40rpx;
+  font-weight: normal;
+}

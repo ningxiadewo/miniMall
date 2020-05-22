@@ -1,21 +1,10 @@
 page {
   padding-bottom: 90rpx;
 }
-.cart {
+.order {
   .address {
     height: 120rpx;
     border-bottom: 4rpx solid #e5e5e5;
-    .empty_address {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      .btn_address {
-        color: #333;
-        font-weight: normal;
-        border-color: #ccc;
-      }
-    }
     .address_info {
       display: flex;
       padding: 10rpx;
@@ -39,14 +28,6 @@ page {
     .info_list {
       display: flex;
       border-bottom: 2rpx solid #e5e5e5;
-      .list_chk_wrap {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0 10rpx;
-      }
-
       .list_img_wrap {
         flex: 5;
         display: flex;
@@ -81,19 +62,10 @@ page {
           }
 
           .tools_edit {
-            overflow: hidden;
-            .edit_num {
-              width: 44rpx;
-              height: 44rpx;
-              text-align: center;
-              border: 2rpx solid #e5e5e5;
-              float: left;
-            }
-
+            text-align: end;
             .goods_num {
-              width: 44rpx;
               height: 44rpx;
-              text-align: center;
+              // text-align: center;
               float: left;
             }
           }
@@ -110,14 +82,6 @@ page {
     display: flex;
     background-color: #fff;
     border-top: 2rpx solid #e5e5e5;
-    .allChecked_wrap {
-      flex: 2;
-      display: flex;
-      align-items: center;
-      .allchecked_chk {
-        padding: 10rpx;
-      }
-    }
 
     .total_wrap {
       flex: 3;
@@ -146,7 +110,7 @@ page {
       }
     }
 
-    .to_order_wrap {
+    .to_pay_wrap {
       background-color: var(--themeColor);
       flex: 2;
       text-align: center;

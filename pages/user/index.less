@@ -1,0 +1,129 @@
+page {
+  background-color: #edece8;
+  color: #666;
+}
+.userinfo_wrap {
+  height: 40vh;
+  background-color: #fff;
+  .logined {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    .userinfo_bg {
+      height: 100%;
+      filter: blur(30rpx);
+    }
+
+    .userinfo_middle {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 100%;
+      height: 150rpx;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      image {
+        width: 150rpx;
+        height: 150rpx;
+        border-radius: 50%;
+      }
+      .userinfo_name {
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .no_login {
+    height: 100%;
+    background-color: var(--themeColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+      font-weight: normal;
+      width: 200rpx;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2rpx solid #e5e5e5;
+      border-radius: 15rpx;
+    }
+  }
+}
+
+.bottom_wrap {
+  position: relative;
+  width: 100%;
+  .actions_wrap {
+    position: absolute;
+    left: 0;
+    top: -40rpx;
+    width: 100%;
+    padding: 0 20rpx;
+    .pulic_title {
+      background-color: #fff;
+      margin-bottom: 2rpx;
+      padding: 18rpx;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .histroy_wrap {
+      display: flex;
+      background-color: #fff;
+      .history_item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 20rpx 0;
+        view {
+          flex: 1;
+        }
+        .number {
+          color: var(--themeColor);
+        }
+      }
+    }
+
+    .user_order_wrap {
+      margin: 20rpx 0;
+      .order_content {
+        display: flex;
+        background-color: #fff;
+        padding: 20rpx 0;
+        .order_item {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .iconfont {
+            font-size: 32rpx;
+            color: var(--themeColor);
+          }
+        }
+      }
+    }
+
+    .address_wrap {
+      margin: 0;
+    }
+
+    .other_wrap {
+      margin: 20rpx 0;
+    }
+
+    .share_wrap {
+      margin-bottom: 20rpx;
+    }
+  }
+}

@@ -1,2 +1,51 @@
-<!--pages/pay/index.wxml-->
-<text>pages/pay/index.wxml</text>
+<view class="order">
+  <!-- 收货地址 开始 -->
+  <view class="address">
+    <!-- 缓存中有地址 -->
+    <view class="address_info">
+      <view class="left_info">
+        <view class="name">{{address.userName}}</view>
+        <view class="detail">{{address.detailAddress}}</view>
+      </view>
+      <view class="right_phone">{{address.telNumber}}</view>
+    </view>
+  </view>
+  <!-- 收货地址 结束 -->
+  <!-- 商品信息 开始 -->
+  <view class="goods_info">
+    <view class="info_title">我的订单</view>
+    <!-- 商品信息列表 -->
+    <view class="info_list" wx:for="{{order}}" wx:key="goods_id">
+      <!-- 图片 -->
+      <view class="list_img_wrap">
+        <image src="{{item.goods_small_logo}}" mode="widthFix" />
+      </view>
+      <!-- 商品信息 -->
+      <view class="list_info_wrap">
+        <view class="goods_name">{{item.goods_name}}</view>
+        <view class="price_wrap">
+          <view class="goods_price">￥{{item.goods_price}}</view>
+          <!-- 商品数量 -->
+          <view class="tools_edit">
+            <text class="goods_num" decode>x&nbsp;{{item.num}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 商品信息 结束 -->
+  <!-- 底部工具 开始 -->
+  <view class="info_tools">
+    <view class="total_wrap">
+      <view class="top_wrap">
+        <view class="total_text">合计：</view>
+        <view class="toral_price">￥{{totalPrice}}</view>
+      </view>
+      <view class="bom_wrap">包含运费</view>
+    </view>
+    <view class="to_pay_wrap" bindtap="toPay">
+      <text>去支付({{totalNum}})</text>
+    </view>
+  </view>
+  <!-- 底部工具 结束 -->
+</view>

@@ -1,2 +1,88 @@
-<!--pages/user/index.wxml-->
-<text>pages/user/index.wxml</text>
+<!-- 用户信息 开始 -->
+<view class="userinfo_wrap">
+  <view class="logined" wx:if="{{loginStatus}}">
+    <image class="userinfo_bg" src="{{userInfo.avatarUrl}}"></image>
+    <view class="userinfo_middle">
+      <image src="{{userInfo.avatarUrl}}" />
+      <view class="userinfo_name">{{userInfo.nickName}}</view>
+    </view>
+  </view>
+  <view class="no_login" wx:else>
+    <button>
+      <navigator url="/pages/login/index">登录</navigator>
+    </button>
+  </view>
+</view>
+<!-- 用户信息 结束 -->
+<!-- 行为信息 开始 -->
+<view class="bottom_wrap">
+  <view class="actions_wrap">
+    <!-- 历史足迹 -->
+    <view class="histroy_wrap">
+      <view class="history_item">
+        <view class="number">0</view>
+        <view>收藏的店铺</view>
+      </view>
+      <view class="history_item">
+        <view class="number">0</view>
+        <view>收藏的商品</view>
+      </view>
+      <view class="history_item">
+        <view class="number">0</view>
+        <view>关注的商品</view>
+      </view>
+      <view class="history_item">
+        <view class="number">0</view>
+        <view>我的足迹</view>
+      </view>
+    </view>
+    <!-- 我的订单 -->
+    <view class="user_order_wrap">
+      <view class="user_order_title pulic_title">我的订单</view>
+      <view class="order_content">
+        <view class="order_item">
+          <view class="iconfont icon-ding_dan"></view>
+          <view>全部订单</view>
+        </view>
+        <view class="order_item">
+          <view class="iconfont icon-fukuantongzhi"></view>
+          <view>待付款</view>
+        </view>
+        <view class="order_item">
+          <view class="iconfont icon-receipt-address"></view>
+          <view>待收货</view>
+        </view>
+        <view class="order_item">
+          <view class="iconfont icon-tuihuotuikuan_dianpu"></view>
+          <view>退款退货</view>
+        </view>
+      </view>
+    </view>
+    <!-- 收货地址管理 -->
+    <view class="address_wrap pulic_title">
+      <view class="left">收货地址管理</view>
+      <view class="right">></view>
+    </view>
+    <!-- 其他信息 -->
+    <view class="other_wrap">
+      <view class="other_item pulic_title">
+        <view class="left">联系客服</view>
+        <view class="right">400-618-400</view>
+      </view>
+      <view class="other_item pulic_title">
+        <view class="left">意见反馈</view>
+        <view class="right">></view>
+      </view>
+      <view class="other_item pulic_title">
+        <view class="left">关于我们</view>
+        <view class="right">></view>
+      </view>
+    </view>
+    <!-- 分享 -->
+    <view class="share_wrap pulic_title">
+      <view class="left">把应用推荐给其他人</view>
+      <view class="right">></view>
+    </view>
+  </view>
+</view>
+<!-- 用户行为信息 结束 -->

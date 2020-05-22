@@ -18,11 +18,13 @@ page {
 }
 .cart .address .address_info {
   display: flex;
+  padding: 10rpx;
 }
 .cart .address .address_info .left_info {
   flex: 5;
 }
 .cart .address .address_info .right_phone {
+  text-align: end;
   flex: 2;
 }
 .cart .goods_info .info_title {

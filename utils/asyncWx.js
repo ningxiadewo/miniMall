@@ -72,3 +72,17 @@ export const showToast = (options) => {
     });
   });
 };
+export const login = (options) => {
+  return new Promise((result, reject) => {
+    wx.login({
+      timeout: 10000,
+      success: function (res) {
+        if (res.code) {
+          result(res);
+        } else {
+          console.log(res.errMsg);
+        }
+      },
+    });
+  });
+};
