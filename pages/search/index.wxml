@@ -1,2 +1,13 @@
-<!--pages/search/index.wxml-->
-<text>pages/search/index.wxml</text>
+<view class="search">
+  <view class="serarch_title">
+    <view class="search_input">
+      <input value="{{inputValue}}" placeholder="请输入搜索内容" type="text" bindinput="handleInput" />
+    </view>
+    <view class="close {{isClose?'isclose' :''}}" bindtap="handleClose">取消</view>
+  </view>
+  <view class="search_content">
+    <navigator url="/pages/goods_detail/index?goods_id={{item.goods_id}}" class="search_item" wx:for="{{goods}}" wx:key="goods_id">
+      {{item.goods_name}}
+    </navigator>
+  </view>
+</view>

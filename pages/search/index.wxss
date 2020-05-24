@@ -1,1 +1,41 @@
-/* pages/search/index.wxss */
+page {
+  background-color: #eeeeee;
+}
+.search .serarch_title {
+  display: flex;
+  justify-content: space-between;
+  padding: 10rpx;
+  height: 90rpx;
+  background-color: var(--themeColor);
+}
+.search .serarch_title .search_input {
+  flex: 5;
+  background-color: #fff;
+  border-radius: 15rpx;
+}
+.search .serarch_title .search_input input {
+  padding: 15rpx 20rpx;
+}
+.search .serarch_title .close {
+  width: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20rpx;
+  background-color: #fff;
+  border-radius: 15rpx;
+}
+.search .serarch_title .isclose {
+  display: none;
+}
+.search .search_content {
+  padding: 0 20rpx;
+}
+.search .search_content .search_item {
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #d7d7d7;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}

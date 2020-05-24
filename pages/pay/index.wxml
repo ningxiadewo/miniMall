@@ -1,7 +1,6 @@
 <view class="order">
   <!-- 收货地址 开始 -->
-  <view class="address">
-    <!-- 缓存中有地址 -->
+  <!-- <view class="address">
     <view class="address_info">
       <view class="left_info">
         <view class="name">{{address.userName}}</view>
@@ -9,6 +8,24 @@
       </view>
       <view class="right_phone">{{address.telNumber}}</view>
     </view>
+  </view> -->
+  <view class="address">
+    <!-- 缓存中没有地址 -->
+    <block wx:if="{{!address}}">
+      <view class="empty_address">
+        <button plain class="btn_address" bindtap="handleAddress">+ 添加收获地址</button>
+      </view>
+    </block>
+    <!-- 缓存中有地址 -->
+    <block wx:else>
+      <view class="address_info">
+        <view class="left_info">
+          <view class="name">{{address.userName}}</view>
+          <view class="detail">{{address.detailAddress}}</view>
+        </view>
+        <view class="right_phone">{{address.telNumber}}</view>
+      </view>
+    </block>
   </view>
   <!-- 收货地址 结束 -->
   <!-- 商品信息 开始 -->

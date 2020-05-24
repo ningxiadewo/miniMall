@@ -2,6 +2,7 @@
   display: flex;
   height: 90rpx;
   border-bottom: 1px solid #e5e5e5;
+  background-color: #fff;
 }
 .tabs .tabs_wrap .tabs_item {
   flex: 1;

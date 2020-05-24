@@ -23,10 +23,10 @@
         <view class="number">0</view>
         <view>收藏的店铺</view>
       </view>
-      <view class="history_item">
-        <view class="number">0</view>
+      <navigator url="/pages/collect/index" class="history_item">
+        <view class="number">{{collectCount}}</view>
         <view>收藏的商品</view>
-      </view>
+      </navigator>
       <view class="history_item">
         <view class="number">0</view>
         <view>关注的商品</view>
@@ -40,22 +40,22 @@
     <view class="user_order_wrap">
       <view class="user_order_title pulic_title">我的订单</view>
       <view class="order_content">
-        <view class="order_item">
+        <navigator class="order_item" url="/pages/order/index?type=1">
           <view class="iconfont icon-ding_dan"></view>
           <view>全部订单</view>
-        </view>
-        <view class="order_item">
+        </navigator>
+        <navigator class="order_item" url="/pages/order/index?type=2">
           <view class="iconfont icon-fukuantongzhi"></view>
           <view>待付款</view>
-        </view>
-        <view class="order_item">
+        </navigator>
+        <navigator class="order_item" url="/pages/order/index?type=3">
           <view class="iconfont icon-receipt-address"></view>
           <view>待收货</view>
-        </view>
-        <view class="order_item">
+        </navigator>
+        <navigator class="order_item" url="/pages/order/index?type=4">
           <view class="iconfont icon-tuihuotuikuan_dianpu"></view>
           <view>退款退货</view>
-        </view>
+        </navigator>
       </view>
     </view>
     <!-- 收货地址管理 -->
@@ -69,10 +69,10 @@
         <view class="left">联系客服</view>
         <view class="right">400-618-400</view>
       </view>
-      <view class="other_item pulic_title">
+      <navigator url="/pages/feedback/index" class="other_item pulic_title">
         <view class="left">意见反馈</view>
         <view class="right">></view>
-      </view>
+      </navigator>
       <view class="other_item pulic_title">
         <view class="left">关于我们</view>
         <view class="right">></view>

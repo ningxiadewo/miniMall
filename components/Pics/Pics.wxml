@@ -1,0 +1,4 @@
+<view class="pics">
+  <image src="{{src}}" />
+  <icon bindtap="delImg" type="cancel" />
+</view>

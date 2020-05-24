@@ -72,6 +72,20 @@ export const showToast = (options) => {
     });
   });
 };
+export const showLoading = (options) => {
+  return new Promise((result, reject) => {
+    wx.showLoading({
+      ...options,
+      success: (res) => {
+        result(res);
+      },
+      fail: (err) => {
+        result(err);
+      },
+      complete: () => {},
+    });
+  });
+};
 export const login = (options) => {
   return new Promise((result, reject) => {
     wx.login({
@@ -82,6 +96,25 @@ export const login = (options) => {
         } else {
           console.log(res.errMsg);
         }
+      },
+    });
+  });
+};
+export const chooseImage = (options) => {
+  return new Promise((result, reject) => {
+    wx.chooseImage({
+      ...options,
+      // 图片的张数
+      count: 9,
+      // 图片的大小，原始图片、压缩图片
+      sizeType: ["original", "compressed"],
+      // 从哪里获取 相册中选取、相机拍照
+      sourceType: ["album", "camera"],
+      success: (res) => {
+        result(res);
+      },
+      fail: (err) => {
+        reject(res);
       },
     });
   });

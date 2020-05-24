@@ -17,6 +17,13 @@ Page({
     request({
       url: "/home/swiperdata",
     }).then((res) => {
+      // 遍历数组且把navigator_url的url中的main要替换成index
+      // 接口的navigator_url的url中的main要替换成index才能正常访问
+      res.forEach((v) => {
+        v.navigator_url = v.navigator_url.replace(/main/i, "index");
+      });
+      // console.log(res);
+
       this.setData({
         swiperList: res,
       });
@@ -35,6 +42,16 @@ Page({
     request({
       url: "/home/floordata",
     }).then((res) => {
+      // 遍历数组且把navigator_url的url中的main要替换成index
+      // 接口的navigator_url的url中的main要替换成index才能正常访问
+      res.forEach((value) => {
+        value.product_list.forEach((item) => {
+          item.navigator_url = item.navigator_url.replace(
+            /list/i,
+            "list/index"
+          );
+        });
+      });
       this.setData({
         floorList: res,
       });

@@ -42,12 +42,14 @@ Page({
    */
   onLoad: function (options) {
     // 获取参数
-    const { cat_id } = options;
+    const cat_id = options.cat_id || "";
+    const query = options.query || "";
     // 设置属性
     this.setData({
       pageParams: {
         ...this.data.pageParams,
         cid: cat_id,
+        query,
       },
     });
     this.getGoodsList();

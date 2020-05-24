@@ -1,2 +1,26 @@
-<!--pages/feedback/index.wxml-->
-<text>pages/feedback/index.wxml</text>
+<Tabs tabs="{{tabs}}" bindhandleItemTab="_handleItemTab" data-content="tabs">
+  <view class="fb_main">
+    <!-- 问题的种类 -->
+    <view class="fb_cates_content">
+      <view class="fb_title">问题的种类</view>
+      <view class="fb_cates_wrap">
+        <view class="fb_cates_item {{item.isActive?'Active': ''}}" bindtap="_handleItemTab" data-index="{{index}}" wx:for="{{cates}}" wx:key="id" data-content="cates">
+          {{item.name}}
+        </view>
+      </view>
+    </view>
+    <!-- 问题的内容 -->
+    <view class="fb_main_content">
+      <view class="fb_problem">
+        <textarea placeholder="请描述一下您的问题" bindinput="getInputTextearValue"></textarea>
+      </view>
+      <view class="fb_pic">
+        <button bindtap="chooseImg">+</button>
+        <Pics src="{{item}}" wx:for="{{chooseImgArr}}" wx:key="*this" binddelimg="delImg" data-index="{{index}}"></Pics>
+      </view>
+      <view class="sumbit">
+        <view class="btn" bindtap="submitContent">提交</view>
+      </view>
+    </view>
+  </view>
+</Tabs>

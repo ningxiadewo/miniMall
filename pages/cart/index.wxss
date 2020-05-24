@@ -70,7 +70,7 @@ page {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  padding-top: 20rpx;
+  padding-top: 40rpx;
 }
 .cart .goods_info .info_list .list_info_wrap .price_wrap .goods_price {
   font-size: 32rpx;

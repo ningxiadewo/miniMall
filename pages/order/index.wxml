@@ -1,0 +1,21 @@
+<Tabs tabs="{{tabs}}" bindhandleItemTab="_handleItemTab">
+  <view class="all_order" hidden="{{!tabs[0].isActive}}">
+    <view class="order_item_wrap" wx:for="{{order}}" wx:key="id">
+      <view class="order_row">
+        <view>订单编号</view>
+        <view>{{item.number}}</view>
+      </view>
+      <view class="order_row">
+        <view>订单价格</view>
+        <view class="price">￥{{item.price}}</view>
+      </view>
+      <view class="order_row">
+        <view>订单日期</view>
+        <view>{{item.time}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="wait_order" hidden="{{!tabs[1].isActive}}">待付款</view>
+  <view class="wati_pay" hidden="{{!tabs[2].isActive}}">待发货</view>
+  <view class="quit_order" hidden="{{!tab[3].isActive}}">退货退款</view>
+</Tabs>

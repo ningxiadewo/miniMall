@@ -171,7 +171,6 @@ Page({
     // 增减数量
 
     cart[index].num = cart[index].num + num;
-    console.log(cart);
 
     this.updateCartStatus(cart);
   },

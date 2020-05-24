@@ -8,8 +8,8 @@
   <view class="price">￥{{goodsInfo.goods_price}}</view>
   <view class="info_wrap">
     <view class="name">{{goodsInfo.goods_name}}</view>
-    <view class="collect">
-      <view class="iconfont icon-shoucang1"></view>
+    <view class="collect" bindtap="handleCollectGoods">
+      <view class="iconfont  {{isCollect? 'icon-shoucang': 'icon-shoucang1'}}  "></view>
       <view class="text">收藏</view>
     </view>
   </view>
@@ -42,7 +42,7 @@
     <view class="text">加入购物车</view>
     <button></button>
   </view>
-  <view class="tools-item btn_buy">
+  <view class="tools-item btn_buy" bindtap="toPay">
     <view class="text">立即购买</view>
     <button></button>
   </view>

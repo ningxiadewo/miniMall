@@ -1,1 +1,76 @@
-/* pages/feedback/index.wxss */
+page {
+  color: #666;
+  background-color: #eeeeee;
+}
+.fb_main {
+  background-color: #eeeeee;
+  padding: 0 20rpx;
+}
+.fb_main .fb_cates_content {
+  margin-bottom: 20rpx;
+}
+.fb_main .fb_cates_content .fb_title {
+  padding: 30rpx 0;
+}
+.fb_main .fb_cates_content .fb_cates_wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.fb_main .fb_cates_content .fb_cates_wrap .fb_cates_item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32%;
+  background-color: #fff;
+  padding: 10rpx 10rpx;
+  margin-bottom: 20rpx;
+}
+.fb_main .fb_cates_content .fb_cates_wrap .Active {
+  color: var(--themeColor);
+  border: 2rpx solid currentColor;
+}
+.fb_main .fb_main_content .fb_problem {
+  background-color: #fff;
+}
+.fb_main .fb_main_content .fb_problem textarea {
+  padding: 20rpx;
+}
+.fb_main .fb_main_content .fb_pic {
+  width: 100%;
+  background-color: #fff;
+  padding: 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.fb_main .fb_main_content .fb_pic button {
+  background-color: #f8f8f8;
+  color: #cecccc;
+  border: 2px solid #e8e8e8;
+  font-size: 36rpx;
+  font-weight: 600;
+  padding: 0;
+  margin: 0;
+  height: 100rpx;
+  width: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20rpx;
+}
+.fb_main .sumbit {
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: flex-end;
+}
+.fb_main .sumbit .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150rpx;
+  background-color: var(--themeColor);
+  color: #fff;
+  font-size: 36rpx;
+  border-radius: 10rpx;
+  padding: 20rpx 0;
+}

@@ -1,2 +1,20 @@
-<!--pages/collect/index.wxml-->
-<text>pages/collect/index.wxml</text>
+<Tabs tabs="{{tabs}}">
+  <view class="collect" wx:if="{{tabs[0].isActive}}">
+    <view class="collect_btn_wrap">
+      <view class="btn_item {{item.isActive?'Active': ''}}" wx:for="{{collectCate}}" wx:key="id">
+        {{item.name}}
+      </view>
+    </view>
+    <view class="collect_goods_wrap">
+      <navigator url="/pages/goods_detail/index?goods_id={{item.goods_id}}" class="goods_item" wx:for="{{collectGoods}}" wx:key="goods_id">
+        <view class="img">
+          <image src="{{item.goods_small_logo}}" mode="widthFix" />
+        </view>
+        <view class="info">
+          <view class="info_name">{{item.goods_name}}</view>
+          <view class="info_price">￥{{item.goods_price}}</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</Tabs>

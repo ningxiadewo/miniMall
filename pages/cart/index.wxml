@@ -23,36 +23,40 @@
   <view class="goods_info">
     <view class="info_title">购物车</view>
     <!-- 商品信息列表 -->
-    <block wx:if="{{cart.length !== 0}}"
-    ><view class="info_list" wx:for="{{cart}}" wx:key="goods_id">
-      <!-- 选中 -->
-      <view class="list_chk_wrap">
-        <checkbox-group bindchange="">
-          <checkbox checked="{{item.checked}}" color="var(--themeColor)" bindtap="checkGood" data-index="{{index}}" />
-        </checkbox-group>
-      </view>
-      <!-- 图片 -->
-      <view class="list_img_wrap">
-        <image src="{{item.goods_small_logo}}" mode="widthFix" />
-      </view>
-      <!-- 商品信息 -->
-      <view class="list_info_wrap">
-        <view class="goods_name">{{item.goods_name}}</view>
-        <view class="price_wrap">
-          <view class="goods_price">￥{{item.goods_price}}</view>
-          <!-- 商品数量 -->
-          <view class="tools_edit">
-            <view class="edit_num" bindtap="editNum" data-num="{{-1}}" data-index="{{index}}">-</view>
-            <view class="goods_num">{{item.num}}</view>
-            <view class="edit_num" bindtap="editNum" data-num="{{1}}" data-index="{{index}}">+</view>
+    <block wx:if="{{cart.length !== 0}}">
+      <view class="info_list" wx:for="{{cart}}" wx:key="goods_id">
+        <!-- 选中 -->
+        <view class="list_chk_wrap">
+          <checkbox-group bindchange="">
+            <checkbox checked="{{item.checked}}" color="var(--themeColor)" bindtap="checkGood" data-index="{{index}}" />
+          </checkbox-group>
+        </view>
+        <!-- 图片 -->
+        <navigator class="list_img_wrap">
+          <image src="{{item.goods_small_logo}}" mode="widthFix" />
+        </navigator>
+        <!-- 商品信息 -->
+        <view url="/pages/goods_detail/index?goods_id={{item.goods_id}}" class="list_info_wrap">
+          <view class="goods_name">{{item.goods_name}}</view>
+          <view class="price_wrap">
+            <view class="goods_price">￥{{item.goods_price}}</view>
+            <!-- 商品数量 -->
+            <view class="tools_edit">
+              <view class="edit_num" bindtap="editNum" data-num="{{-1}}" data-index="{{index}}">
+                -
+              </view>
+              <view class="goods_num">{{item.num}}</view>
+              <view class="edit_num" bindtap="editNum" data-num="{{1}}" data-index="{{index}}">
+                +
+              </view>
+            </view>
           </view>
         </view>
       </view>
-    </view></block>
-    <block wx:else>
-      <image src="http://pic.616pic.com/ys_b_img/00/09/39/Ls8lTFMQiU.jpg" mode="widthFix"/>
     </block>
-    
+    <block wx:else>
+      <image src="http://img.zcool.cn/community/031050659016111a801214550e19731.jpg@260w_195h_1c_1e_1o_100sh.jpg" mode="widthFix" />
+    </block>
   </view>
   <!-- 商品信息 结束 -->
   <!-- 底部工具 开始 -->

@@ -5,6 +5,17 @@ page {
   height: 120rpx;
   border-bottom: 4rpx solid #e5e5e5;
 }
+.order .address .empty_address {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.order .address .empty_address .btn_address {
+  color: #333;
+  font-weight: normal;
+  border-color: #ccc;
+}
 .order .address .address_info {
   display: flex;
   padding: 10rpx;

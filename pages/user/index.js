@@ -8,6 +8,8 @@ Page({
     userInfo: {},
     // 登录状态
     loginStatus: false,
+    // 收藏商品数量
+    collectCount: 0,
   },
 
   /**
@@ -22,5 +24,11 @@ Page({
         userInfo,
       });
     }
+
+    // 获取收藏商品数量
+    const collect = wx.getStorageSync("collect") || [];
+    this.setData({
+      collectCount: collect.length,
+    });
   },
 });

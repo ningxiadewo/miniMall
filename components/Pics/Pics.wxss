@@ -1,0 +1,18 @@
+.pics {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.pics image {
+  height: 100%;
+}
+.pics icon {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: -20rpx;
+  right: 10rpx;
+}

@@ -1,0 +1,18 @@
+page {
+  color: #666;
+}
+.all_order .order_item_wrap {
+  border-bottom: 2rpx solid #e5e5e5;
+}
+.all_order .order_item_wrap .order_row {
+  display: flex;
+  justify-content: space-between;
+  padding: 15rpx 15rpx 0 15rpx;
+}
+.all_order .order_item_wrap .order_row:last-child {
+  padding-bottom: 15rpx;
+}
+.all_order .order_item_wrap .order_row .price {
+  color: var(--themeColor);
+  font-weight: 600;
+}

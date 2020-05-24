@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // 商品信息
     goodsInfo: {},
+    // 是否收藏
+    isCollect: false,
   },
 
   // 全局变量 商品数据
@@ -28,6 +31,25 @@ Page({
       },
     });
     this.GoodsInfo = res;
+
+    // 查看商品是否收藏
+    // 获取缓存中的收藏商品
+    let collect = wx.getStorageSync("collect") || [];
+
+    // 查看缓存中是否已收藏该商品
+    if (collect.length !== 0) {
+      // 缓存中有收藏商品
+      collect.some((v, i) => {
+        // 已收藏
+        if (v.goods_id === this.GoodsInfo.goods_id) {
+          this.setData({
+            isCollect: true,
+          });
+          return true;
+        }
+      });
+    }
+
     this.setData({
       goodsInfo: {
         goods_id: res.goods_id,
@@ -78,6 +100,49 @@ Page({
     wx.showToast({
       title: "加入购物车成功",
       mask: true, // 开启遮罩，防止用户频繁点击按钮
+    });
+  },
+  // 收藏商品
+  handleCollectGoods() {
+    // 获取缓存中的收藏商品
+    let collect = wx.getStorageSync("collect") || [];
+
+    let isCollect = this.data.isCollect;
+
+    if (isCollect) {
+      // 已收藏就取消收藏
+      collect.some((v, i) => {
+        // 已收藏
+        if (v.goods_id === this.GoodsInfo.goods_id) {
+          collect.splice(i, 1);
+          this.setData({
+            isCollect: false,
+          });
+          return true;
+        }
+      });
+    } else {
+      // 没有收藏该商品，就收藏
+      collect.push(this.GoodsInfo);
+      this.setData({
+        isCollect: true,
+      });
+    }
+    // 更新缓存中的收藏商品数组
+    wx.setStorageSync("collect", collect);
+  },
+
+  // 立即购物
+  toPay() {
+    // 设置商品数量
+    this.GoodsInfo.num = 1;
+
+    // 添加到立即购买商品的缓存中
+    wx.setStorageSync("nowGoods", this.GoodsInfo);
+
+    // 跳转到支付页面 type = 1表示从商品详情页跳转过来
+    wx.navigateTo({
+      url: "/pages/pay/index?type=1",
     });
   },
 });
